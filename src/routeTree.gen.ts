@@ -9,38 +9,168 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestRouteImport } from './routes/test'
+import { Route as TemasRouteImport } from './routes/temas'
+import { Route as HistoriaRouteImport } from './routes/historia'
+import { Route as BuscarRouteImport } from './routes/buscar'
+import { Route as AgremiacionesRouteImport } from './routes/agremiaciones'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RamasIndexRouteImport } from './routes/ramas.index'
+import { Route as RamasSlugRouteImport } from './routes/ramas.$slug'
 
+const TestRoute = TestRouteImport.update({
+  id: '/test',
+  path: '/test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TemasRoute = TemasRouteImport.update({
+  id: '/temas',
+  path: '/temas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoriaRoute = HistoriaRouteImport.update({
+  id: '/historia',
+  path: '/historia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuscarRoute = BuscarRouteImport.update({
+  id: '/buscar',
+  path: '/buscar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgremiacionesRoute = AgremiacionesRouteImport.update({
+  id: '/agremiaciones',
+  path: '/agremiaciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RamasIndexRoute = RamasIndexRouteImport.update({
+  id: '/ramas/',
+  path: '/ramas/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RamasSlugRoute = RamasSlugRouteImport.update({
+  id: '/ramas/$slug',
+  path: '/ramas/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agremiaciones': typeof AgremiacionesRoute
+  '/buscar': typeof BuscarRoute
+  '/historia': typeof HistoriaRoute
+  '/temas': typeof TemasRoute
+  '/test': typeof TestRoute
+  '/ramas/$slug': typeof RamasSlugRoute
+  '/ramas/': typeof RamasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agremiaciones': typeof AgremiacionesRoute
+  '/buscar': typeof BuscarRoute
+  '/historia': typeof HistoriaRoute
+  '/temas': typeof TemasRoute
+  '/test': typeof TestRoute
+  '/ramas/$slug': typeof RamasSlugRoute
+  '/ramas': typeof RamasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agremiaciones': typeof AgremiacionesRoute
+  '/buscar': typeof BuscarRoute
+  '/historia': typeof HistoriaRoute
+  '/temas': typeof TemasRoute
+  '/test': typeof TestRoute
+  '/ramas/$slug': typeof RamasSlugRoute
+  '/ramas/': typeof RamasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agremiaciones'
+    | '/buscar'
+    | '/historia'
+    | '/temas'
+    | '/test'
+    | '/ramas/$slug'
+    | '/ramas/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agremiaciones'
+    | '/buscar'
+    | '/historia'
+    | '/temas'
+    | '/test'
+    | '/ramas/$slug'
+    | '/ramas'
+  id:
+    | '__root__'
+    | '/'
+    | '/agremiaciones'
+    | '/buscar'
+    | '/historia'
+    | '/temas'
+    | '/test'
+    | '/ramas/$slug'
+    | '/ramas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgremiacionesRoute: typeof AgremiacionesRoute
+  BuscarRoute: typeof BuscarRoute
+  HistoriaRoute: typeof HistoriaRoute
+  TemasRoute: typeof TemasRoute
+  TestRoute: typeof TestRoute
+  RamasSlugRoute: typeof RamasSlugRoute
+  RamasIndexRoute: typeof RamasIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/test': {
+      id: '/test'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof TestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/temas': {
+      id: '/temas'
+      path: '/temas'
+      fullPath: '/temas'
+      preLoaderRoute: typeof TemasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historia': {
+      id: '/historia'
+      path: '/historia'
+      fullPath: '/historia'
+      preLoaderRoute: typeof HistoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buscar': {
+      id: '/buscar'
+      path: '/buscar'
+      fullPath: '/buscar'
+      preLoaderRoute: typeof BuscarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agremiaciones': {
+      id: '/agremiaciones'
+      path: '/agremiaciones'
+      fullPath: '/agremiaciones'
+      preLoaderRoute: typeof AgremiacionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +178,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ramas/': {
+      id: '/ramas/'
+      path: '/ramas'
+      fullPath: '/ramas/'
+      preLoaderRoute: typeof RamasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ramas/$slug': {
+      id: '/ramas/$slug'
+      path: '/ramas/$slug'
+      fullPath: '/ramas/$slug'
+      preLoaderRoute: typeof RamasSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgremiacionesRoute: AgremiacionesRoute,
+  BuscarRoute: BuscarRoute,
+  HistoriaRoute: HistoriaRoute,
+  TemasRoute: TemasRoute,
+  TestRoute: TestRoute,
+  RamasSlugRoute: RamasSlugRoute,
+  RamasIndexRoute: RamasIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
