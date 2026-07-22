@@ -1,0 +1,65 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { SiteNav, SiteFooter } from "@/components/site-nav";
+import { historyMilestones } from "@/lib/engineering-data";
+
+export const Route = createFileRoute("/historia")({
+  head: () => ({
+    meta: [
+      { title: "Historia y Evolución de la Ingeniería" },
+      {
+        name: "description",
+        content:
+          "Recorrido por la historia de la ingeniería: desde las primeras herramientas hasta la era digital y sostenible.",
+      },
+      { property: "og:title", content: "Historia de la Ingeniería" },
+      {
+        property: "og:description",
+        content: "Línea de tiempo interactiva de la evolución de la ingeniería.",
+      },
+    ],
+  }),
+  component: Historia,
+});
+
+function Historia() {
+  return (
+    <>
+      <SiteNav />
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+        <div className="max-w-3xl">
+          <span className="text-primary text-sm font-semibold">Módulo</span>
+          <h1 className="mt-2 text-4xl md:text-5xl font-bold">
+            Historia y <span className="gradient-text">evolución</span>
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground">
+            La ingeniería ha acompañado a la humanidad desde sus orígenes,
+            transformándose junto con la ciencia, la tecnología y la sociedad.
+          </p>
+        </div>
+
+        <ol className="mt-14 relative border-l-2 border-border ml-3">
+          {historyMilestones.map((m, i) => (
+            <li key={m.title} className="mb-10 ml-8">
+              <span className="absolute -left-3 h-6 w-6 rounded-full gradient-hero grid place-items-center text-white text-xs font-bold shadow-elegant">
+                {i + 1}
+              </span>
+              <div className="card-elegant p-6">
+                <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-wide">
+                  <span className="text-primary">{m.era}</span>
+                  <span className="text-muted-foreground">{m.year}</span>
+                </div>
+                <h2 className="mt-2 font-display font-semibold text-xl">
+                  {m.title}
+                </h2>
+                <p className="mt-2 text-muted-foreground leading-relaxed">
+                  {m.text}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+      <SiteFooter />
+    </>
+  );
+}
