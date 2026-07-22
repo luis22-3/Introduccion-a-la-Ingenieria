@@ -49,7 +49,7 @@ export const Route = createFileRoute("/ramas/$slug")({
 function BranchDetail() {
   const { branch } = Route.useLoaderData();
 
-  const sections = [
+  const sections: { icon: typeof Compass; title: string; items: string[] }[] = [
     { icon: Compass, title: "Áreas de aplicación", items: branch.areas },
     { icon: GraduationCap, title: "Perfil profesional", items: branch.profile },
     { icon: Briefcase, title: "Campos laborales", items: branch.jobs },
