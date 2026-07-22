@@ -9,6 +9,7 @@ const links = [
   { to: "/temas", label: "Temas" },
   { to: "/agremiaciones", label: "Agremiaciones" },
   { to: "/test", label: "Test de afinidad" },
+  { to: "/actividades", label: "Actividades" },
 ] as const;
 
 export function SiteNav() {

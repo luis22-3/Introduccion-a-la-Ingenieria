@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { RefreshCw, Trophy } from "lucide-react";
+import { RefreshCw, Trophy, Sparkles } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
 import { branches } from "@/lib/engineering-data";
 
@@ -207,13 +207,21 @@ function TestAfinidad() {
                 <div className="min-w-0 flex-1">
                   <h3 className="text-2xl font-bold">{top.name}</h3>
                   <p className="mt-2 text-muted-foreground">{top.definition}</p>
-                  <Link
-                    to="/ramas/$slug"
-                    params={{ slug: top.slug }}
-                    className="mt-4 inline-flex px-4 py-2 rounded-xl gradient-hero text-white text-sm font-semibold"
-                  >
-                    Explorar {top.name}
-                  </Link>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <Link
+                      to="/ramas/$slug"
+                      params={{ slug: top.slug }}
+                      className="inline-flex px-4 py-2 rounded-xl gradient-hero text-white text-sm font-semibold"
+                    >
+                      Explorar {top.name}
+                    </Link>
+                    <Link
+                      to="/actividades"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border bg-card text-sm font-semibold hover:bg-muted"
+                    >
+                      <Sparkles className="h-4 w-4" /> Probar actividad de esta rama
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

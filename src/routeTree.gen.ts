@@ -14,6 +14,7 @@ import { Route as TemasRouteImport } from './routes/temas'
 import { Route as HistoriaRouteImport } from './routes/historia'
 import { Route as BuscarRouteImport } from './routes/buscar'
 import { Route as AgremiacionesRouteImport } from './routes/agremiaciones'
+import { Route as ActividadesRouteImport } from './routes/actividades'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RamasIndexRouteImport } from './routes/ramas.index'
 import { Route as RamasSlugRouteImport } from './routes/ramas.$slug'
@@ -43,6 +44,11 @@ const AgremiacionesRoute = AgremiacionesRouteImport.update({
   path: '/agremiaciones',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ActividadesRoute = ActividadesRouteImport.update({
+  id: '/actividades',
+  path: '/actividades',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -61,6 +67,7 @@ const RamasSlugRoute = RamasSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/actividades': typeof ActividadesRoute
   '/agremiaciones': typeof AgremiacionesRoute
   '/buscar': typeof BuscarRoute
   '/historia': typeof HistoriaRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/actividades': typeof ActividadesRoute
   '/agremiaciones': typeof AgremiacionesRoute
   '/buscar': typeof BuscarRoute
   '/historia': typeof HistoriaRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/actividades': typeof ActividadesRoute
   '/agremiaciones': typeof AgremiacionesRoute
   '/buscar': typeof BuscarRoute
   '/historia': typeof HistoriaRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/actividades'
     | '/agremiaciones'
     | '/buscar'
     | '/historia'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/actividades'
     | '/agremiaciones'
     | '/buscar'
     | '/historia'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/actividades'
     | '/agremiaciones'
     | '/buscar'
     | '/historia'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActividadesRoute: typeof ActividadesRoute
   AgremiacionesRoute: typeof AgremiacionesRoute
   BuscarRoute: typeof BuscarRoute
   HistoriaRoute: typeof HistoriaRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgremiacionesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/actividades': {
+      id: '/actividades'
+      path: '/actividades'
+      fullPath: '/actividades'
+      preLoaderRoute: typeof ActividadesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActividadesRoute: ActividadesRoute,
   AgremiacionesRoute: AgremiacionesRoute,
   BuscarRoute: BuscarRoute,
   HistoriaRoute: HistoriaRoute,
