@@ -22,6 +22,7 @@ export const Route = createFileRoute("/ramas/")({
 });
 
 function RamasIndex() {
+  const n = branches.length;
   return (
     <>
       <SiteNav />
@@ -38,27 +39,67 @@ function RamasIndex() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {branches.map((b) => (
-            <Link
-              key={b.slug}
-              to="/ramas/$slug"
-              params={{ slug: b.slug }}
-              className="card-elegant p-6 group hover:shadow-elegant hover:-translate-y-1 transition-all"
-            >
-              <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${b.color} grid place-items-center text-4xl`}>
-                {b.icon}
+        <div className="mt-16 flex justify-center">
+          <div
+            className="relative wheel"
+            style={{ width: "var(--wheel-size)", height: "var(--wheel-size)" }}
+          >
+            {/* Decorative rings */}
+            <div className="absolute inset-0 rounded-full border border-border/60" />
+            <div className="absolute inset-[10%] rounded-full border border-dashed border-border/50" />
+
+            {/* Center hub */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[38%] w-[38%] rounded-full gradient-hero text-primary-foreground shadow-elegant grid place-items-center text-center p-4 z-10">
+              <div>
+                <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] opacity-80">
+                  Explora
+                </div>
+                <div className="mt-1 font-display font-bold text-lg md:text-2xl leading-tight">
+                  Ramas de la ingeniería
+                </div>
+                <div className="mt-2 text-[10px] md:text-xs opacity-80">
+                  {n} disciplinas
+                </div>
               </div>
-              <h2 className="mt-4 font-display font-semibold text-xl">{b.name}</h2>
-              <p className="mt-2 text-sm text-muted-foreground">{b.tagline}</p>
-              <span className="mt-4 inline-block text-primary text-sm font-semibold group-hover:underline">
-                Ver detalles →
-              </span>
-            </Link>
-          ))}
+            </div>
+
+            {/* Orbit items */}
+            {branches.map((b, i) => {
+              const angle = (i / n) * 2 * Math.PI - Math.PI / 2;
+              const x = 50 + Math.cos(angle) * 42; // % from center
+              const y = 50 + Math.sin(angle) * 42;
+              return (
+                <Link
+                  key={b.slug}
+                  to="/ramas/$slug"
+                  params={{ slug: b.slug }}
+                  aria-label={b.name}
+                  className="group absolute -translate-x-1/2 -translate-y-1/2 h-[22%] w-[22%] rounded-full bg-card border border-border shadow-soft grid place-items-center text-center p-2 transition-all duration-300 hover:scale-125 hover:shadow-elegant hover:border-primary hover:z-20 hover:bg-primary hover:text-primary-foreground"
+                  style={{ left: `${x}%`, top: `${y}%` }}
+                >
+                  <div className="flex flex-col items-center gap-1">
+                    <div
+                      className={`h-10 w-10 md:h-12 md:w-12 rounded-full bg-gradient-to-br ${b.color} grid place-items-center text-xl md:text-2xl transition-transform group-hover:scale-110`}
+                    >
+                      {b.icon}
+                    </div>
+                    <div className="font-display font-semibold text-[10px] md:text-xs leading-tight px-1">
+                      {b.name}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
+
+        {/* Hover tagline list (kept for accessibility / reference) */}
+        <p className="mt-10 text-center text-sm text-muted-foreground">
+          Pasa el cursor sobre cada rama y haz clic para ver sus detalles.
+        </p>
       </section>
       <SiteFooter />
     </>
   );
 }
+
