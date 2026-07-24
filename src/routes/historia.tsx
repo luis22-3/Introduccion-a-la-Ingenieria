@@ -59,6 +59,33 @@ function Historia() {
           ))}
         </ol>
       </section>
+
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="max-w-3xl">
+          <span className="text-primary text-sm font-semibold">Multimedia</span>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">
+            Video: <span className="gradient-text">línea de tiempo</span> de la ingeniería
+          </h2>
+          <p className="mt-3 text-muted-foreground">
+            Complementa el recorrido con este video en español que explica la
+            evolución histórica de la ingeniería, desde sus orígenes hasta la
+            era digital y sostenible.
+          </p>
+        </div>
+
+        <div className="mt-8 card-elegant overflow-hidden">
+          <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/x4nfXaEvuAI"
+              title="Historia y evolución de la ingeniería"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
       <SiteFooter />
     </>
   );
