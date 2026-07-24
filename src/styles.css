@@ -125,4 +125,14 @@
 }
 @utility shadow-elegant {
   box-shadow: var(--shadow-elegant);
+@utility shadow-elegant {
+  box-shadow: var(--shadow-elegant);
+}
+@utility wheel {
+  --wheel-size: min(90vw, 360px);
+}
+@media (min-width: 768px) {
+  .wheel {
+    --wheel-size: 560px;
+  }
 }
