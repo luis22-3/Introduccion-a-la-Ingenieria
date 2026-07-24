@@ -61,17 +61,18 @@ function Historia() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="max-w-3xl">
-          <span className="text-primary text-sm font-semibold">Multimedia</span>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold">
-            Video: <span className="gradient-text">línea de tiempo</span> de la ingeniería
+        <div className="flex items-center justify-center gap-4 md:gap-6">
+          <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent via-primary to-primary" />
+          <h2 className="text-center text-3xl md:text-4xl font-bold uppercase tracking-wide text-primary">
+            Multimedia
           </h2>
-          <p className="mt-3 text-muted-foreground">
-            Complementa el recorrido con este video en español que explica la
-            evolución histórica de la ingeniería, desde sus orígenes hasta la
-            era digital y sostenible.
-          </p>
+          <div className="h-px flex-1 max-w-[120px] bg-gradient-to-l from-transparent via-primary to-primary" />
         </div>
+        <p className="mt-4 text-center text-muted-foreground max-w-2xl mx-auto">
+          Complementa el recorrido con este video en español que explica la
+          evolución histórica de la ingeniería, desde sus orígenes hasta la
+          era digital y sostenible.
+        </p>
 
         <div className="mt-8 card-elegant overflow-hidden">
           <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
