@@ -78,7 +78,7 @@ function Historia() {
           <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
             <iframe
               className="absolute inset-0 h-full w-full"
-              src="https://www.youtube.com/embed/x4nfXaEvuAI"
+              src="https://www.youtube.com/embed/otB-xjxqHT8"
               title="Historia y evolución de la ingeniería"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
