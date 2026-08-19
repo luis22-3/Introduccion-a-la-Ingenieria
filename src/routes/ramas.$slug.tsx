@@ -127,11 +127,11 @@ function BranchDetail() {
       <SiteNav />
 
       {/* HERO */}
-      <section className={`bg-gradient-to-br ${branch.color} text-white`}>
+      <section className="gradient-hero text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
           <Link
             to="/ramas"
-            className="inline-flex items-center gap-2 text-white/90 hover:text-white text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground text-sm font-medium mb-6"
           >
             <ArrowLeft className="h-4 w-4" /> Todas las ramas
           </Link>
@@ -140,10 +140,10 @@ function BranchDetail() {
               <h1 className="text-4xl md:text-6xl font-bold leading-[1.05]">
                 {branch.name}
               </h1>
-              <p className="mt-4 text-xl font-semibold text-white/95">
+              <p className="mt-4 text-xl font-semibold text-primary-foreground/95">
                 {branch.tagline}
               </p>
-              <p className="mt-3 max-w-xl text-white/80 leading-relaxed">
+              <p className="mt-3 max-w-xl text-primary-foreground/80 leading-relaxed">
                 {detail?.intro ?? branch.definition}
               </p>
 
@@ -156,12 +156,12 @@ function BranchDetail() {
                   ].map((c) => (
                     <div
                       key={c.small}
-                      className="flex items-center gap-3 rounded-xl bg-white/10 border border-white/20 px-4 py-2.5 backdrop-blur-sm"
+                      className="flex items-center gap-3 rounded-xl bg-background/10 border border-background/20 px-4 py-2.5 backdrop-blur-sm"
                     >
-                      <c.icon className="h-4 w-4 text-white/80" />
+                      <c.icon className="h-4 w-4 text-primary-foreground/80" />
                       <div className="leading-tight">
                         <div className="font-display font-bold text-sm">{c.big}</div>
-                        <div className="text-[11px] text-white/70">{c.small}</div>
+                        <div className="text-[11px] text-primary-foreground/70">{c.small}</div>
                       </div>
                     </div>
                   ))}
@@ -171,13 +171,13 @@ function BranchDetail() {
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   to="/actividades"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[color:var(--foreground)] font-semibold shadow-elegant hover:opacity-90"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-background text-foreground font-semibold shadow-elegant hover:opacity-90"
                 >
                   Probar la actividad de esta rama <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   to="/test"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/40 font-semibold hover:bg-white/10"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-background/40 font-semibold hover:bg-background/10"
                 >
                   Hacer el test de afinidad
                 </Link>
@@ -186,8 +186,8 @@ function BranchDetail() {
 
             {/* tarjeta tipo "ficha de cuaderno" */}
             <div className="relative">
-              <div className="absolute -inset-2 rounded-3xl bg-white/10 rotate-2" />
-              <div className="relative rounded-3xl bg-white/95 text-[color:var(--foreground)] p-6 shadow-elegant -rotate-1">
+              <div className="absolute -inset-2 rounded-3xl bg-background/10 rotate-2" />
+              <div className="relative rounded-3xl bg-card text-card-foreground p-6 shadow-elegant -rotate-1">
                 <div className="flex items-center justify-between">
                   <span className="text-6xl">{branch.icon}</span>
                   <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -270,7 +270,7 @@ function BranchDetail() {
           <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
             <SectionTitle
               kicker="En la práctica"
-              title={`¿Qué hace alguien de ${branch.name.replace("Ingeniería ", "").replace("Ingeniería de ", "")}?`}
+              title={`¿Qué hace un profesional de ${branch.name}?`}
               note="Lo que revisamos en clase y contrastamos con ofertas de empleo reales."
             />
             <div className="mt-8 grid gap-6 md:grid-cols-3">
