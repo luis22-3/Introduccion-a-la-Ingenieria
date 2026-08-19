@@ -185,30 +185,38 @@ function Temas() {
                 </div>
 
                 <div className="mt-6 flex items-start gap-5">
-                  <ProgressRing value={style.progress} accent={style.accent} />
+                  <ProgressRing value={progress} accent={style.accent} />
                   <ul className="min-w-0 flex-1 space-y-2.5">
-                    {u.items.map((it, idx) => {
-                      const complete = idx < done;
+                    {u.items.map((it) => {
+                      const key = `${u.title}::${it}`;
+                      const complete = !!checked[key];
                       return (
-                        <li
-                          key={it}
-                          className="flex items-start gap-2.5 text-sm leading-snug"
-                        >
-                          {complete ? (
-                            <CheckCircle2
-                              className="mt-0.5 h-4 w-4 shrink-0"
-                              style={{ color: style.accent }}
-                            />
-                          ) : (
-                            <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50" />
-                          )}
-                          <span
-                            className={cn(
-                              !complete && "text-muted-foreground",
-                            )}
+                        <li key={it}>
+                          <button
+                            type="button"
+                            aria-pressed={complete}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggle(key);
+                            }}
+                            className="flex w-full items-start gap-2.5 rounded-md px-1 py-0.5 text-left text-sm leading-snug transition-colors duration-200 hover:bg-muted/60"
                           >
-                            {it}
-                          </span>
+                            {complete ? (
+                              <CheckCircle2
+                                className="mt-0.5 h-4 w-4 shrink-0"
+                                style={{ color: style.accent }}
+                              />
+                            ) : (
+                              <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50" />
+                            )}
+                            <span
+                              className={cn(
+                                !complete && "text-muted-foreground",
+                              )}
+                            >
+                              {it}
+                            </span>
+                          </button>
                         </li>
                       );
                     })}
