@@ -39,17 +39,18 @@ export const Route = createFileRoute("/temas")({
 type UnitStyle = {
   icon: LucideIcon;
   accent: string;
-  progress: number;
   current?: boolean;
 };
 
 const unitStyles: UnitStyle[] = [
-  { icon: HardHat, accent: "#235347", progress: 75 },
-  { icon: History, accent: "#3f8f6f", progress: 60 },
-  { icon: Network, accent: "#8CB79B", progress: 40, current: true },
-  { icon: Lightbulb, accent: "#6b8f5a", progress: 80 },
-  { icon: Briefcase, accent: "#173831", progress: 30 },
+  { icon: HardHat, accent: "#235347" },
+  { icon: History, accent: "#3f8f6f" },
+  { icon: Network, accent: "#8CB79B", current: true },
+  { icon: Lightbulb, accent: "#6b8f5a" },
+  { icon: Briefcase, accent: "#173831" },
 ];
+
+const STORAGE_KEY = "temas-progreso";
 
 function ProgressRing({ value, accent }: { value: number; accent: string }) {
   const r = 26;
