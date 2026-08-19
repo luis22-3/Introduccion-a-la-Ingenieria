@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   CheckCircle2,
@@ -39,17 +39,18 @@ export const Route = createFileRoute("/temas")({
 type UnitStyle = {
   icon: LucideIcon;
   accent: string;
-  progress: number;
   current?: boolean;
 };
 
 const unitStyles: UnitStyle[] = [
-  { icon: HardHat, accent: "#235347", progress: 75 },
-  { icon: History, accent: "#3f8f6f", progress: 60 },
-  { icon: Network, accent: "#8CB79B", progress: 40, current: true },
-  { icon: Lightbulb, accent: "#6b8f5a", progress: 80 },
-  { icon: Briefcase, accent: "#173831", progress: 30 },
+  { icon: HardHat, accent: "#235347" },
+  { icon: History, accent: "#3f8f6f" },
+  { icon: Network, accent: "#8CB79B", current: true },
+  { icon: Lightbulb, accent: "#6b8f5a" },
+  { icon: Briefcase, accent: "#173831" },
 ];
+
+const STORAGE_KEY = "temas-progreso";
 
 function ProgressRing({ value, accent }: { value: number; accent: string }) {
   const r = 26;
@@ -90,6 +91,29 @@ function ProgressRing({ value, accent }: { value: number; accent: string }) {
 
 function Temas() {
   const [open, setOpen] = useState<string | null>(null);
+  const [checked, setChecked] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) setChecked(JSON.parse(raw));
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const toggle = (key: string) => {
+    setChecked((prev) => {
+      const next = { ...prev, [key]: !prev[key] };
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        /* ignore */
+      }
+      return next;
+    });
+  };
+
 
   return (
     <>
@@ -110,7 +134,10 @@ function Temas() {
           {courseTopics.map((u, i) => {
             const style = unitStyles[i % unitStyles.length];
             const Icon = style.icon;
-            const done = Math.round((style.progress / 100) * u.items.length);
+            const done = u.items.filter(
+              (it) => checked[`${u.title}::${it}`],
+            ).length;
+            const progress = Math.round((done / u.items.length) * 100);
             const expanded = open === u.title;
             return (
               <article
@@ -158,30 +185,38 @@ function Temas() {
                 </div>
 
                 <div className="mt-6 flex items-start gap-5">
-                  <ProgressRing value={style.progress} accent={style.accent} />
+                  <ProgressRing value={progress} accent={style.accent} />
                   <ul className="min-w-0 flex-1 space-y-2.5">
-                    {u.items.map((it, idx) => {
-                      const complete = idx < done;
+                    {u.items.map((it) => {
+                      const key = `${u.title}::${it}`;
+                      const complete = !!checked[key];
                       return (
-                        <li
-                          key={it}
-                          className="flex items-start gap-2.5 text-sm leading-snug"
-                        >
-                          {complete ? (
-                            <CheckCircle2
-                              className="mt-0.5 h-4 w-4 shrink-0"
-                              style={{ color: style.accent }}
-                            />
-                          ) : (
-                            <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50" />
-                          )}
-                          <span
-                            className={cn(
-                              !complete && "text-muted-foreground",
-                            )}
+                        <li key={it}>
+                          <button
+                            type="button"
+                            aria-pressed={complete}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggle(key);
+                            }}
+                            className="flex w-full items-start gap-2.5 rounded-md px-1 py-0.5 text-left text-sm leading-snug transition-colors duration-200 hover:bg-muted/60"
                           >
-                            {it}
-                          </span>
+                            {complete ? (
+                              <CheckCircle2
+                                className="mt-0.5 h-4 w-4 shrink-0"
+                                style={{ color: style.accent }}
+                              />
+                            ) : (
+                              <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50" />
+                            )}
+                            <span
+                              className={cn(
+                                !complete && "text-muted-foreground",
+                              )}
+                            >
+                              {it}
+                            </span>
+                          </button>
                         </li>
                       );
                     })}
