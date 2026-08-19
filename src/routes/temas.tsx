@@ -134,7 +134,10 @@ function Temas() {
           {courseTopics.map((u, i) => {
             const style = unitStyles[i % unitStyles.length];
             const Icon = style.icon;
-            const done = Math.round((style.progress / 100) * u.items.length);
+            const done = u.items.filter(
+              (it) => checked[`${u.title}::${it}`],
+            ).length;
+            const progress = Math.round((done / u.items.length) * 100);
             const expanded = open === u.title;
             return (
               <article
