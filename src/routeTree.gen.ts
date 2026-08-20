@@ -17,6 +17,7 @@ import { Route as AgremiacionesRouteImport } from './routes/agremiaciones'
 import { Route as ActividadesRouteImport } from './routes/actividades'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RamasIndexRouteImport } from './routes/ramas.index'
+import { Route as UnidadesSlugRouteImport } from './routes/unidades.$slug'
 import { Route as RamasSlugRouteImport } from './routes/ramas.$slug'
 
 const TestRoute = TestRouteImport.update({
@@ -59,6 +60,11 @@ const RamasIndexRoute = RamasIndexRouteImport.update({
   path: '/ramas/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UnidadesSlugRoute = UnidadesSlugRouteImport.update({
+  id: '/unidades/$slug',
+  path: '/unidades/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RamasSlugRoute = RamasSlugRouteImport.update({
   id: '/ramas/$slug',
   path: '/ramas/$slug',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/temas': typeof TemasRoute
   '/test': typeof TestRoute
   '/ramas/$slug': typeof RamasSlugRoute
+  '/unidades/$slug': typeof UnidadesSlugRoute
   '/ramas/': typeof RamasIndexRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/temas': typeof TemasRoute
   '/test': typeof TestRoute
   '/ramas/$slug': typeof RamasSlugRoute
+  '/unidades/$slug': typeof UnidadesSlugRoute
   '/ramas': typeof RamasIndexRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/temas': typeof TemasRoute
   '/test': typeof TestRoute
   '/ramas/$slug': typeof RamasSlugRoute
+  '/unidades/$slug': typeof UnidadesSlugRoute
   '/ramas/': typeof RamasIndexRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/temas'
     | '/test'
     | '/ramas/$slug'
+    | '/unidades/$slug'
     | '/ramas/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/temas'
     | '/test'
     | '/ramas/$slug'
+    | '/unidades/$slug'
     | '/ramas'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/temas'
     | '/test'
     | '/ramas/$slug'
+    | '/unidades/$slug'
     | '/ramas/'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   TemasRoute: typeof TemasRoute
   TestRoute: typeof TestRoute
   RamasSlugRoute: typeof RamasSlugRoute
+  UnidadesSlugRoute: typeof UnidadesSlugRoute
   RamasIndexRoute: typeof RamasIndexRoute
 }
 
@@ -205,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RamasIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/unidades/$slug': {
+      id: '/unidades/$slug'
+      path: '/unidades/$slug'
+      fullPath: '/unidades/$slug'
+      preLoaderRoute: typeof UnidadesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ramas/$slug': {
       id: '/ramas/$slug'
       path: '/ramas/$slug'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   TemasRoute: TemasRoute,
   TestRoute: TestRoute,
   RamasSlugRoute: RamasSlugRoute,
+  UnidadesSlugRoute: UnidadesSlugRoute,
   RamasIndexRoute: RamasIndexRoute,
 }
 export const routeTree = rootRouteImport

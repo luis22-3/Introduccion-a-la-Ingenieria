@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   CheckCircle2,
   Circle,
@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
 import { courseTopics } from "@/lib/engineering-data";
+import { unitDetails } from "@/lib/unit-details";
+
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/temas")({
@@ -242,13 +244,20 @@ function Temas() {
 
                 <div className="mt-5 flex items-center justify-between">
                   <span className="text-xs text-muted-foreground">
-                    {done}/{u.items.length} subtemas
+                    {done}/{u.items.length} subtemas · {unitDetails[i]?.weeks}{" "}
+                    semanas
                   </span>
-                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-transform duration-200 group-hover:translate-x-1">
-                    {expanded ? "Ocultar" : "Comenzar"}
+                  <Link
+                    to="/unidades/$slug"
+                    params={{ slug: unitDetails[i]?.slug ?? "" }}
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-transform duration-200 group-hover:translate-x-1"
+                  >
+                    Comenzar
                     <ChevronRight className="h-4 w-4" />
-                  </span>
+                  </Link>
                 </div>
+
               </article>
             );
           })}
