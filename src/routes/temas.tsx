@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
 import { courseTopics } from "@/lib/engineering-data";
+import { unitDetails } from "@/lib/unit-details";
+
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/temas")({
