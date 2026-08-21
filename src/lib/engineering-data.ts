@@ -296,56 +296,115 @@ export const associations: Association[] = [
   },
 ];
 
-export const historyMilestones = [
+export type Milestone = {
+  era: string;
+  year: string;
+  title: string;
+  text: string;
+  icon: string;
+  fact: string;
+  more: string[];
+};
+
+export const historyMilestones: Milestone[] = [
   {
     era: "Prehistoria",
-    year: "~3000 a.C.",
+    year: "Antes de 3000 a.C.",
     title: "Los orígenes",
     text: "Las primeras herramientas, la rueda y la construcción de refugios marcan el nacimiento de la ingeniería como práctica humana.",
+    icon: "🪓",
+    fact: "Los utensilios de piedra tallada son las primeras evidencias de diseño e ingeniería en la historia humana.",
+    more: [
+      "La rueda aparece hacia el 3500 a.C. en Mesopotamia, primero como torno de alfarero.",
+      "El dominio del fuego permitió la metalurgia temprana del cobre.",
+    ],
   },
   {
     era: "Antigüedad",
-    year: "2500 a.C. – 500 d.C.",
+    year: "3000 a.C. – 476 d.C.",
     title: "Grandes obras del mundo antiguo",
     text: "Pirámides de Egipto, acueductos romanos, la Gran Muralla China y las obras griegas evidencian una ingeniería sofisticada al servicio de civilizaciones.",
+    icon: "🏛️",
+    fact: "Los egipcios usaron rampas y palancas para construir las pirámides, un ejemplo temprano de ingeniería estructural.",
+    more: [
+      "Roma construyó más de 400 km de acueductos solo para abastecer la ciudad.",
+      "Arquímedes formalizó la palanca, la polea y el principio de flotación.",
+    ],
   },
   {
     era: "Edad Media",
-    year: "500 – 1500",
+    year: "476 – 1400",
     title: "Catedrales y molinos",
     text: "Se desarrollan técnicas de construcción góticas, molinos de agua y viento, y avances en metalurgia y navegación.",
+    icon: "⛪",
+    fact: "El arbotante gótico permitió muros más altos y delgados: control de cargas siglos antes del cálculo estructural.",
+    more: [
+      "Los molinos hidráulicos fueron la primera fuente de energía mecánica a gran escala.",
+      "La brújula y el timón de codaste transformaron la navegación.",
+    ],
   },
   {
     era: "Renacimiento",
     year: "1400 – 1600",
     title: "Ciencia e ingeniería se encuentran",
     text: "Figuras como Leonardo da Vinci integran arte, ciencia y diseño. Aparecen los primeros tratados de ingeniería militar y civil.",
+    icon: "📐",
+    fact: "Leonardo dejó más de 6.000 páginas de bocetos técnicos: máquinas voladoras, engranajes y puentes desmontables.",
+    more: [
+      "La imprenta de Gutenberg democratizó el conocimiento técnico.",
+      "Brunelleschi levantó la cúpula de Florencia sin cimbras tradicionales.",
+    ],
   },
   {
     era: "Revolución Industrial",
     year: "1760 – 1840",
     title: "Máquinas de vapor y fábricas",
     text: "James Watt y otros inauguran la era de la producción mecanizada. Nace la ingeniería mecánica y civil moderna.",
+    icon: "⚙️",
+    fact: "La máquina de vapor de James Watt fue clave para el desarrollo de la industria y el ferrocarril moderno.",
+    more: [
+      "Surgen las primeras escuelas formales de ingeniería civil en Europa.",
+      "El hierro fundido y luego el acero cambian la escala de puentes y edificios.",
+    ],
   },
   {
     era: "Siglo XIX",
-    year: "1800 – 1900",
+    year: "1840 – 1900",
     title: "Electricidad y ferrocarriles",
     text: "Faraday, Edison y Tesla impulsan la ingeniería eléctrica. Se expanden las redes ferroviarias y los grandes puentes de acero.",
+    icon: "💡",
+    fact: "La 'guerra de las corrientes' entre Edison (DC) y Tesla (AC) definió cómo se distribuye hoy la energía en el mundo.",
+    more: [
+      "La Torre Eiffel (1889) demostró el potencial del hierro forjado.",
+      "Colombia inaugura sus primeros ferrocarriles y plantas eléctricas.",
+    ],
   },
   {
     era: "Siglo XX",
     year: "1900 – 2000",
     title: "Aviación, espacio y computación",
     text: "De los hermanos Wright al hombre en la Luna, y del primer computador a Internet: la ingeniería redefine la vida moderna.",
+    icon: "🚀",
+    fact: "El computador de la nave Apollo 11 tenía menos memoria que una calculadora actual, y aun así llegó a la Luna.",
+    more: [
+      "La ingeniería industrial nace con Taylor y Ford y la línea de ensamblaje.",
+      "El transistor (1947) abre la puerta a toda la electrónica moderna.",
+    ],
   },
   {
     era: "Siglo XXI",
-    year: "2000 – hoy",
+    year: "2000 – Actualidad",
     title: "Ingeniería digital y sostenible",
     text: "Inteligencia artificial, energías renovables, biotecnología y exploración espacial marcan una nueva era enfocada en sostenibilidad e innovación.",
+    icon: "🔋",
+    fact: "Los microchips modernos pueden contener miles de millones de transistores en un área menor que una uña.",
+    more: [
+      "La energía solar es hoy la fuente de electricidad más barata en gran parte del mundo.",
+      "La ingeniería incorpora criterios ambientales y sociales (ODS) en cada proyecto.",
+    ],
   },
 ];
+
 
 export const courseTopics = [
   {
