@@ -7,7 +7,7 @@ import {
   Calendar,
   Compass,
   GraduationCap,
-  Quote,
+  
   Sparkles,
   Star,
   TrendingUp,
