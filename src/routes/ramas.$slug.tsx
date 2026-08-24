@@ -400,25 +400,11 @@ function BranchDetail() {
             </div>
           </section>
 
-          {/* TESTIMONIO + FAQ */}
+          {/* FAQ */}
           <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-14">
-            <div className="grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
-              <div className="rounded-3xl gradient-hero text-primary-foreground p-7 shadow-elegant">
-                <Quote className="h-8 w-8 opacity-70" />
-                <p className="mt-4 text-lg leading-relaxed">
-                  “{detail.testimonial.quote}”
-                </p>
-                <div className="mt-6">
-                  <div className="font-display font-semibold">
-                    {detail.testimonial.name}
-                  </div>
-                  <div className="text-sm opacity-80">
-                    {detail.testimonial.role}
-                  </div>
-                </div>
-              </div>
-
+            <div className="grid gap-6">
               <div className="card-elegant p-6">
+
                 <h3 className="font-display font-semibold text-xl">
                   Preguntas frecuentes
                 </h3>
