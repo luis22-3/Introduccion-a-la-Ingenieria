@@ -134,3 +134,19 @@
     --wheel-size: 560px;
   }
 }
+
+@keyframes float-y {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+@utility animate-float {
+  animation: float-y 7s ease-in-out infinite;
+}
+@utility animate-float-slow {
+  animation: float-y 11s ease-in-out infinite;
+  animation-delay: -4s;
+}

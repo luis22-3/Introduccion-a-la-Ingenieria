@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, BookOpen, Users, Sparkles } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
 import { branches } from "@/lib/engineering-data";
-import heroImg from "@/assets/hero-engineering.jpg";
+import heroGlass from "@/assets/hero-glass.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,15 +30,21 @@ function Home() {
       <SiteNav />
 
       <section className="relative overflow-hidden">
+        {/* 3D glass background */}
         <div className="absolute inset-0 -z-10">
           <img
-            src={heroImg}
+            src={heroGlass}
             alt=""
             aria-hidden="true"
-            className="h-full w-full object-cover opacity-20"
+            className="h-full w-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/30 to-background/10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
         </div>
+
+        {/* Floating soft glows for depth */}
+        <div className="absolute -z-10 left-[8%] top-[18%] h-40 w-40 rounded-full bg-secondary/40 blur-3xl animate-float" />
+        <div className="absolute -z-10 right-[12%] bottom-[20%] h-56 w-56 rounded-full bg-primary-glow/30 blur-3xl animate-float-slow" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
