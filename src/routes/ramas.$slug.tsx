@@ -431,7 +431,6 @@ function BranchDetail() {
           {related.length > 0 ? (
             <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
               <SectionTitle
-                kicker="Si te gustó esta"
                 title="Ramas relacionadas"
                 note="Comparten materias, herramientas o campos de trabajo."
               />
