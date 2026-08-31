@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, BookOpen, Users, Sparkles } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
 import { branches } from "@/lib/engineering-data";
-import heroImg from "@/assets/hero-engineering.jpg";
+import heroGlass from "@/assets/hero-glass.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
