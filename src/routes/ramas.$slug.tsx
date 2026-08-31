@@ -68,17 +68,19 @@ function SectionTitle({
   title,
   note,
 }: {
-  kicker: string;
+  kicker?: string;
   title: string;
   note?: string;
 }) {
   return (
     <div className="flex flex-wrap items-end justify-between gap-3">
       <div>
-        <span className="text-[11px] uppercase tracking-[0.28em] text-primary font-semibold">
-          {kicker}
-        </span>
-        <h2 className="mt-1 text-2xl md:text-3xl font-bold">{title}</h2>
+        {kicker ? (
+          <span className="text-[11px] uppercase tracking-[0.28em] text-primary font-semibold">
+            {kicker}
+          </span>
+        ) : null}
+        <h2 className={`text-2xl md:text-3xl font-bold ${kicker ? "mt-1" : ""}`}>{title}</h2>
       </div>
       {note ? (
         <p className="text-sm text-muted-foreground max-w-sm">{note}</p>
