@@ -452,4 +452,13 @@ export const courseTopics = [
       "Tendencias globales y sostenibilidad",
     ],
   },
+  {
+    unit: "Unidad 6",
+    title: "Carreras profesionales y posgrados",
+    items: [
+      "Carreras profesionales en ingeniería",
+      "Especializaciones y maestrías",
+      "Doctorados, investigación y formación continua",
+    ],
+  },
 ];

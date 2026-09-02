@@ -8,6 +8,7 @@ import {
   Network,
   Lightbulb,
   Briefcase,
+  GraduationCap,
   ChevronRight,
   type LucideIcon,
 } from "lucide-react";
@@ -50,6 +51,7 @@ const unitStyles: UnitStyle[] = [
   { icon: Network, accent: "#8CB79B", current: true },
   { icon: Lightbulb, accent: "#6b8f5a" },
   { icon: Briefcase, accent: "#173831" },
+  { icon: GraduationCap, accent: "#2f6b4f" },
 ];
 
 const STORAGE_KEY = "temas-progreso";
