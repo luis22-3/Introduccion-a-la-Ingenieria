@@ -255,6 +255,53 @@ export const unitDetails: UnitDetail[] = [
       },
     ],
   },
+  {
+    slug: "carreras-profesionales-y-posgrados",
+    unit: "Unidad 6",
+    title: "Carreras profesionales y posgrados",
+    intro:
+      "Cómo elegir tu carrera de ingeniería y qué opciones de posgrado existen para seguir creciendo profesionalmente.",
+    weeks: 2,
+    weekRange: "Semanas 17-18 del curso",
+    subtopics: [
+      {
+        title: "Carreras profesionales en ingeniería",
+        summary: "Panorama de programas y cómo elegir el tuyo.",
+        estimate: "1 semana",
+        heading: "Carreras profesionales en ingeniería",
+        paragraphs: [
+          "En Colombia existen decenas de programas de ingeniería acreditados: civiles, de sistemas, mecánica, eléctrica, industrial, química, ambiental, biomédica y muchas más.",
+          "Elegir carrera implica mirar tres cosas: qué problemas te gustan, en qué sectores hay empleo y qué perfil de trabajo (campo, oficina, laboratorio) se ajusta a tu estilo de vida.",
+        ],
+        keyIdea:
+          "No elijas la carrera con más salida laboral: elige la que puedas sostener con interés durante años.",
+      },
+      {
+        title: "Especializaciones y maestrías",
+        summary: "Profundización técnica y gerencial después del pregrado.",
+        estimate: "1 semana",
+        heading: "Especializaciones y maestrías",
+        paragraphs: [
+          "La especialización (1 año aprox.) profundiza en un área técnica concreta, mientras la maestría (2 años) puede ser de profundización técnica, gerencial (MBA, gestión de proyectos) o de investigación.",
+          "Muchas empresas valoran el posgrado al momento de ascender a cargos de liderazgo, y en Colombia existen becas como las de ICETEX, Colfuturo y convocatorias del Ministerio de Ciencia.",
+        ],
+        keyIdea:
+          "El mejor momento para un posgrado es cuando ya sabes qué problema quieres resolver a mayor profundidad.",
+      },
+      {
+        title: "Doctorados, investigación y formación continua",
+        summary: "La ruta académica y el aprendizaje permanente.",
+        estimate: "1 semana",
+        heading: "Doctorados, investigación y formación continua",
+        paragraphs: [
+          "El doctorado (4-5 años) forma investigadores que generan conocimiento nuevo; es la ruta natural hacia la docencia universitaria y los centros de I+D.",
+          "Fuera de la academia, la formación continua —certificaciones, diplomados, cursos en línea— permite mantenerse vigente en tecnologías que cambian cada pocos años.",
+        ],
+        keyIdea:
+          "En ingeniería, graduarte no es el final de los estudios: es el inicio de aprender por cuenta propia.",
+      },
+    ],
+  },
 ];
 
 export const currentUnitSlug = "ramas-de-la-ingenieria";
