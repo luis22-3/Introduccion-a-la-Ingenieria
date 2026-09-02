@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
 import { getUnitDetail, currentUnitSlug, unitDetails } from "@/lib/unit-details";
+import { unitImages } from "@/lib/unit-images";
 import { cn } from "@/lib/utils";
 
 const STORAGE_KEY = "temas-progreso";
