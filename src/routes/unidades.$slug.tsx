@@ -208,20 +208,30 @@ function UnitPage() {
                 >
                   <div className="overflow-hidden">
                     <div className="border-t border-border px-5 py-5">
-                      <div className="flex items-start gap-3">
-                        <Network className="mt-1 h-6 w-6 shrink-0 text-primary" />
-                        <div className="space-y-3">
-                          <h3 className="font-display text-base font-bold">
-                            {s.heading}
-                          </h3>
-                          {s.paragraphs.map((p) => (
-                            <p
-                              key={p}
-                              className="text-sm leading-relaxed text-muted-foreground"
-                            >
-                              {p}
-                            </p>
-                          ))}
+                      <div className="grid gap-5 md:grid-cols-[1fr_240px] md:items-start">
+                        {unitImages[unit.slug]?.[i] && (
+                          <img
+                            src={unitImages[unit.slug][i].src}
+                            alt={unitImages[unit.slug][i].alt}
+                            loading="lazy"
+                            className="w-full rounded-xl border border-border object-cover md:order-2 md:h-full md:max-h-64"
+                          />
+                        )}
+                        <div className="flex items-start gap-3 md:order-1">
+                          <Network className="mt-1 h-6 w-6 shrink-0 text-primary" />
+                          <div className="space-y-3">
+                            <h3 className="font-display text-base font-bold">
+                              {s.heading}
+                            </h3>
+                            {s.paragraphs.map((p) => (
+                              <p
+                                key={p}
+                                className="text-sm leading-relaxed text-muted-foreground"
+                              >
+                                {p}
+                              </p>
+                            ))}
+                          </div>
                         </div>
                       </div>
 
