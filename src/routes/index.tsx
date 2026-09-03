@@ -48,6 +48,15 @@ function Home() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
+            <div
+              className="animate-hero-fade"
+              style={{ animationDelay: "0.35s" }}
+            >
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+                <Sparkles className="h-3 w-3" /> Materia: Introducción a la Ingeniería
+              </span>
+            </div>
+
             <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
               {["Descubre", "el", "mundo", "de", "la", "ingeniería"]
                 .map((word, i) => (
@@ -66,12 +75,9 @@ function Home() {
 
             <div
               className="animate-hero-fade"
-              style={{ animationDelay: "0.45s" }}
+              style={{ animationDelay: "0.55s" }}
             >
-              <span className="mt-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
-                <Sparkles className="h-3 w-3" /> Materia: Introducción a la Ingeniería
-              </span>
-              <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+              <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
                 Una plataforma pensada para estudiantes de primer semestre.
                 Conoce las ramas de la ingeniería, su historia, sus agremiaciones
                 profesionales y descubre con cuál conectas mejor.
