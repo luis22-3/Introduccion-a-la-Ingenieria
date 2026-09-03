@@ -150,3 +150,50 @@
   animation: float-y 11s ease-in-out infinite;
   animation-delay: -4s;
 }
+
+/* Hero title entrance: firm drop with a subtle bounce */
+@keyframes title-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-70px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@utility animate-title-word {
+  display: inline-block;
+  opacity: 0;
+  animation: title-drop 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes hero-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@utility animate-hero-fade {
+  opacity: 0;
+  animation: hero-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-title-word,
+  .animate-hero-fade {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
