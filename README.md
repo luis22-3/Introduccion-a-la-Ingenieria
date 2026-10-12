@@ -1,6 +1,5 @@
 # Engineering Explorer
 
-necesito que me realices una pagina web para la materia de introduccion a la ingenieria que contenga los siguientes requerimientos;
  
 
 Requerimientos Funcionales: 
